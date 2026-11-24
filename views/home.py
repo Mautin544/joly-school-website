@@ -26,7 +26,7 @@ icons = {"Nursery": "🧸", "Primary": "📖", "College": "🎓"}
 for i, (col, l) in enumerate(zip(st.columns(3), p["levels"])):
     col.markdown(f'<div class="card top rv" style="--c:{l["colour"]};--d:{i*.15}s"><span class="ic">{icons[l["name"]]}</span><span class="pill" style="background:{l["colour"]}">{l["name"]}</span><p>{l["tagline"]}</p></div>', unsafe_allow_html=True)
 
-st.header("Our Campus")
+st.header("Our School")
 for col, x in zip(st.columns(3), [x for x in fac if x["category"] == "Campus"][:3]):
     col.image(str(ROOT / x["file"]), caption=x["caption"])
 st.page_link("views/facilities.py", label="See more of our school", icon="🏢")
