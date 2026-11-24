@@ -7,7 +7,7 @@ logo = img_b64(LOGO / "logo_nursery_primary.png", 400)
 st.markdown(f"""<div class="hero2" style="--bg:url({bg})">
 <div><span class="badge">✨ Admissions open · 2026/2027</span>
 <h1>{s['name']}</h1><p><i>"{s['motto']}."</i></p>
-<p>A vibrant school in Ota, Ogun State, building strong foundations in knowledge, character and values for children from Nursery to College.</p></div>
+<p>A young school in Ota, Ogun State, building strong foundations in knowledge, character and values for children from Nursery to College.</p></div>
 <img class="logo" src="{logo}" alt="Joly Nursery and Primary School crest"></div>""", unsafe_allow_html=True)
 
 c = st.columns(3)
@@ -26,7 +26,7 @@ icons = {"Nursery": "🧸", "Primary": "📖", "College": "🎓"}
 for i, (col, l) in enumerate(zip(st.columns(3), p["levels"])):
     col.markdown(f'<div class="card top rv" style="--c:{l["colour"]};--d:{i*.15}s"><span class="ic">{icons[l["name"]]}</span><span class="pill" style="background:{l["colour"]}">{l["name"]}</span><p>{l["tagline"]}</p></div>', unsafe_allow_html=True)
 
-st.header("Our School")
+st.header("Our Campus")
 for col, x in zip(st.columns(3), [x for x in fac if x["category"] == "Campus"][:3]):
     col.image(str(ROOT / x["file"]), caption=x["caption"])
 st.page_link("views/facilities.py", label="See more of our school", icon="🏢")
@@ -43,9 +43,15 @@ y.markdown(f'### “Education is the greatest treasure.”')
 y.markdown(d["short"])
 y.page_link("views/staff.py", label="Read the full message", icon="➡️")
 
+from components import events as ev
+ev.style()
+up = ev.upcoming()[:3]
+if up:
+    st.header("Upcoming Events")
+    st.markdown("".join(ev.event_card(x) for x in up), unsafe_allow_html=True)
+    st.page_link("views/news.py", label="See the full calendar", icon="📅")
 st.header("Latest Announcements")
-for item in n[:3]:
-    st.markdown(f'<div class="card top rv"><span class="pill" style="background:#2E3192">{item["category"]}</span><br><b>{item["title"]}</b><p>{item["body"]}</p></div>', unsafe_allow_html=True)
+st.markdown("".join(ev.announcement_card(x) for x in ev.items()[:3]), unsafe_allow_html=True)
 
 st.markdown(f"""<div class="cta"><h2>Enrol your child today</h2>
 <p>Admissions are open for the 2026/2027 school year.</p>
