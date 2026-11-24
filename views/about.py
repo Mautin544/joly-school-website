@@ -3,7 +3,7 @@ from components.ui import load, banner, footer
 s = load("school")
 banner("About Our School", s["motto"])
 st.header("Our Story")
-st.write(f"{s['name']} was founded on {s['founded_full']} by {s['director']['name']}, with the belief that education is the greatest treasure. We are a young school, building with care and purpose.")
+st.write(f"{s['name']} was founded on {s['founded_full']} by {s['director']['name']}, with the belief that education is the greatest treasure. We are a vibrant school, building with care and purpose.")
 a, b = st.columns(2)
 a.markdown(f'<div class="card"><h3>Vision</h3>{s["vision"]}</div>', unsafe_allow_html=True)
 b.markdown(f'<div class="card"><h3>Mission</h3>{s["mission"]}</div>', unsafe_allow_html=True)
