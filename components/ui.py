@@ -21,8 +21,8 @@ def css():
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap');
 :root{--royal:#2E3192;--deep:#1b1f6b;--sky:#00AEEF;--red:#D7263D;--gold:#F5A623;--ink:#1c2340;--soft:#f3f8ff}
 html,body,[class*="css"]{font-family:'Poppins',sans-serif;color:var(--ink)}
-h1,h2,h3{font-family:'Playfair Display',serif!important;color:var(--royal)}
-.block-container{max-width:1100px;padding-top:2rem}
+h1,h2,h3{font-family:'Playfair Display',serif!important;color:#4a52c8}
+.block-container{max-width:1100px;padding-top:5rem}
 .block-container h2{margin-top:2.2rem}
 .block-container h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;margin-top:.35rem;background:linear-gradient(90deg,var(--sky),var(--royal))}
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
@@ -63,6 +63,17 @@ h1,h2,h3{font-family:'Playfair Display',serif!important;color:var(--royal)}
 .foot a{color:#8fd8ff}.foot b{color:#fff}
 .stButton>button,.stFormSubmitButton>button{background:var(--royal);color:#fff;border-radius:99px;border:0;padding:.5rem 1.4rem;transition:transform .2s,background .2s}
 .stButton>button:hover,.stFormSubmitButton>button:hover{background:var(--sky);color:#fff;transform:translateY(-2px)}
+/* readable in light AND dark mode: custom panels carry their own colours */
+.hero h1,.hero2 h1,.cta h2{color:#fff!important}
+.hero p,.hero2 p,.cta p,.badge{color:#fff!important}
+.card,.card :is(p,b,small,span,div,li,br){color:var(--ink)!important}
+.card :is(h1,h2,h3){color:var(--royal)!important}
+.card .pill{color:#fff!important}
+.stat,.stat span{color:#5a6690!important}.stat b{color:var(--royal)!important}
+.ph,.ph *{color:#3d4d80!important}
+.foot,.foot :is(p,span,div,i){color:#dbe6ff!important}.foot b{color:#fff!important}.foot a{color:#8fd8ff!important}
+.cta a{color:#fff!important}.cta a.alt{color:var(--royal)!important}
+.topbar,.topbar *{color:#fff!important}
 /* top navigation */
 @keyframes shine{0%{background-position:-200% 0}100%{background-position:200% 0}}
 header[data-testid="stHeader"]{background:rgba(255,255,255,.88)!important;backdrop-filter:blur(12px);border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--royal),var(--sky),var(--gold),var(--red)) 1;box-shadow:0 6px 20px rgba(46,49,146,.12)}
@@ -70,7 +81,7 @@ header[data-testid="stHeader"] a{position:relative;border-radius:99px!important;
 header[data-testid="stHeader"] a:hover{background:#eaf1ff!important;color:var(--royal)!important;transform:translateY(-2px);box-shadow:0 6px 14px rgba(46,49,146,.15)}
 header[data-testid="stHeader"] a[aria-current="page"],header[data-testid="stHeader"] a[aria-selected="true"],header[data-testid="stHeader"] a[data-active="true"]{background:linear-gradient(120deg,var(--royal),var(--sky))!important;color:#fff!important;font-weight:600;box-shadow:0 6px 16px rgba(46,49,146,.35)}
 header[data-testid="stHeader"] a[aria-current="page"] *,header[data-testid="stHeader"] a[aria-selected="true"] *,header[data-testid="stHeader"] a[data-active="true"] *{color:#fff!important}
-.topbar{background:linear-gradient(100deg,var(--deep),var(--royal),var(--sky),var(--royal),var(--deep));background-size:300% 100%;animation:shine 12s linear infinite;color:#fff;border-radius:0 0 16px 16px;padding:.45rem 1rem;margin:-2rem 0 1.2rem;text-align:center;font-size:.82rem}
+.topbar{background:linear-gradient(100deg,var(--deep),var(--royal),var(--sky),var(--royal),var(--deep));background-size:300% 100%;animation:shine 12s linear infinite;color:#fff;border-radius:0 0 16px 16px;padding:.45rem 1rem;margin:0 0 1.2rem;text-align:center;font-size:.82rem}
 .topbar a{color:#fff!important;font-weight:600;text-decoration:none}
 @media(max-width:760px){.hero2{grid-template-columns:1fr;padding:1.8rem 1.3rem}.hero2 h1{font-size:1.9rem}.hero2 .logo{max-width:150px}.hero h1{font-size:1.7rem}.stats{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;opacity:1!important}}
