@@ -1,0 +1,32 @@
+[
+ {
+  "file": "assets/facilities/school_gate.jpg",
+  "caption": "School gate and entrance",
+  "category": "Campus"
+ },
+ {
+  "file": "assets/facilities/school_building_1.jpg",
+  "caption": "School building",
+  "category": "Campus"
+ },
+ {
+  "file": "assets/facilities/front_view.jpg",
+  "caption": "Front view of the school",
+  "category": "Campus"
+ },
+ {
+  "file": "assets/facilities/school_building_2.jpg",
+  "caption": "School building and classroom block",
+  "category": "Campus"
+ },
+ {
+  "file": "assets/facilities/nursery_2_class.jpg",
+  "caption": "Nursery 2 classroom",
+  "category": "Classrooms"
+ },
+ {
+  "file": "assets/facilities/nursery_1_class.jpg",
+  "caption": "Nursery 1 classroom",
+  "category": "Classrooms"
+ }
+]
