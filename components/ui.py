@@ -63,6 +63,14 @@ h1,h2,h3{font-family:'Playfair Display',serif!important;color:#4a52c8}
 .foot a{color:#8fd8ff}.foot b{color:#fff}
 .stButton>button,.stFormSubmitButton>button{background:var(--royal);color:#fff;border-radius:99px;border:0;padding:.5rem 1.4rem;transition:transform .2s,background .2s}
 .stButton>button:hover,.stFormSubmitButton>button:hover{background:var(--sky);color:#fff;transform:translateY(-2px)}
+/* always light: ignore the visitor's dark mode */
+:root{color-scheme:light only}
+.stApp,[data-testid="stAppViewContainer"],[data-testid="stMain"]{background-color:#fff!important}
+.stApp :is(p,li,label,span,small,h4,h5,h6){color:var(--ink)}
+[data-testid="stCaptionContainer"],[data-testid="stCaptionContainer"] *{color:#5a6690!important}
+.stButton p,.stFormSubmitButton p{color:#fff!important}
+.stApp input,.stApp textarea,.stApp [data-baseweb="select"]>div,.stApp [data-baseweb="input"],.stApp [data-baseweb="base-input"]{background-color:#fff!important;color:var(--ink)!important;border-color:#c9d6f0!important}
+[data-testid="stExpander"] details{background:#fff;border-color:#e3ebf8}
 /* readable in light AND dark mode: custom panels carry their own colours */
 .hero h1,.hero2 h1,.cta h2{color:#fff!important}
 .hero p,.hero2 p,.cta p,.badge{color:#fff!important}
@@ -83,9 +91,17 @@ header[data-testid="stHeader"] a[aria-current="page"],header[data-testid="stHead
 header[data-testid="stHeader"] a[aria-current="page"] *,header[data-testid="stHeader"] a[aria-selected="true"] *,header[data-testid="stHeader"] a[data-active="true"] *{color:#fff!important}
 .topbar{background:linear-gradient(100deg,var(--deep),var(--royal),var(--sky),var(--royal),var(--deep));background-size:300% 100%;animation:shine 12s linear infinite;color:#fff;border-radius:0 0 16px 16px;padding:.45rem 1rem;margin:0 0 1.2rem;text-align:center;font-size:.82rem}
 .topbar a{color:#fff!important;font-weight:600;text-decoration:none}
+@keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+.wa-fab{position:fixed;right:18px;bottom:18px;z-index:999;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none!important;animation:wapulse 2.4s infinite;transition:transform .2s}
+.wa-fab:hover{transform:scale(1.1)}
+.cta a.wa{background:#25D366;animation:none}
 @media(max-width:760px){.hero2{grid-template-columns:1fr;padding:1.8rem 1.3rem}.hero2 h1{font-size:1.9rem}.hero2 .logo{max-width:150px}.hero h1{font-size:1.7rem}.stats{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;opacity:1!important}}
 </style>""", unsafe_allow_html=True)
+
+def wa_link(s):
+    from urllib.parse import quote
+    return f"https://wa.me/{s['whatsapp']}?text=" + quote("Hello, I would like to enquire about admission at Joly Nursery, Primary and College.")
 
 def topbar():
     s = load("school")
@@ -103,5 +119,5 @@ def footer():
     soc = " · ".join(f'<a href="{u}">{n}</a>' for n, u in s["socials"].items())
     st.markdown(f"""<div class="foot"><b>{s['name']}</b><br><i>{s['motto']}</i> · Established {s['founded']}<br><br>
 📍 {s['address']} · <a href="{s['map_url']}" target="_blank">Get directions</a><br>
-📞 <a href="tel:{s['phone']}">{s['phone']}</a> · ✉️ <a href="mailto:{s['email']}">{s['email']}</a><br>
-🕙 Visits: {s['hours_visit']}<br>📞 Calls: {s['hours_call']}{('<br>'+soc) if soc else ''}<br><br>© 2026 {s['name']}</div>""", unsafe_allow_html=True)
+📞 <a href="tel:{s['phone']}">{s['phone']}</a> · 💬 <a href="{wa_link(s)}" target="_blank">WhatsApp {s['whatsapp_display']}</a> · ✉️ <a href="mailto:{s['email']}">{s['email']}</a><br>
+🕙 Visits: {s['hours_visit']}<br>📞 Calls: {s['hours_call']}{('<br>'+soc) if soc else ''}<br><br>© 2026 {s['name']}</div><a class="wa-fab" href="{wa_link(s)}" target="_blank" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">💬</a>""", unsafe_allow_html=True)
