@@ -7,7 +7,7 @@ logo = img_b64(LOGO / "logo_nursery_primary.png", 400)
 st.markdown(f"""<div class="hero2" style="--bg:url({bg})">
 <div><span class="badge">✨ Admissions open · 2026/2027</span>
 <h1>{s['name']}</h1><p><i>"{s['motto']}."</i></p>
-<p>A young school in Ota, Ogun State, building strong foundations in knowledge, character and values for children from Nursery to College.</p></div>
+<p>A vibrant school in Ota, Ogun State, building strong foundations in knowledge, character and values for children from Nursery to College.</p></div>
 <img class="logo" src="{logo}" alt="Joly Nursery and Primary School crest"></div>""", unsafe_allow_html=True)
 
 c = st.columns(3)
