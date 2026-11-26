@@ -79,6 +79,11 @@ header[data-testid="stHeader"] a[aria-current="page"] *,header[data-testid="stHe
 .foot .copy{border-top:1px solid rgba(255,255,255,.18);margin-top:1.4rem;padding-top:1rem;font-size:.8rem}
 .wa-fab{position:fixed;right:16px;bottom:16px;z-index:999;background:#1fa855;border-radius:99px;padding:.6rem 1.1rem;font-size:.85rem;font-weight:600;text-decoration:none!important;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 .wa-fab,.wa-fab:hover{color:#fff!important}
+.hero2 h1,.hero2 h1 *,.pagehead h1,.pagehead h1 *,.cta h2,.cta h2 *{color:#fff!important}
+.hero2 p,.hero2 p *,.hero2 .eyebrow,.cta p,.cta p *{color:#e3e9ff!important}
+.pagehead p,.pagehead p *{color:#dbe3ff!important}
+.card :is(h1,h2,h3),.card :is(h1,h2,h3) *{color:var(--royal)!important}
+.foot b,.foot b *{color:#fff!important}
 @media(max-width:760px){.hero2{grid-template-columns:1fr;padding:2rem 1.3rem}.hero2 h1{font-size:1.9rem}.hero2 .logo{max-width:130px}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.foot .fg{grid-template-columns:1fr}.pagehead h1{font-size:1.7rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;opacity:1!important}}
 </style>""", unsafe_allow_html=True)
