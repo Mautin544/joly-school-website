@@ -35,13 +35,13 @@ def announcement_card(a):
     when = nice(a["_pub"]) if a["_pub"] else esc(a.get("date"))
     line = ""
     if a["_ev"]:
-        bits = [f"📅 {nice(a['_ev'])}"] + ([f"🕙 {esc(a['event_time'])}"] if a.get("event_time") else []) + ([f"📍 {esc(a['venue'])}"] if a.get("venue") else [])
+        bits = [f"Date: {nice(a['_ev'])}"] + ([f"Time: {esc(a['event_time'])}"] if a.get("event_time") else []) + ([f"Venue: {esc(a['venue'])}"] if a.get("venue") else [])
         line = "<small>" + " · ".join(bits) + "</small><br>"
     return f'<div class="card top rv"><span class="pill" style="background:#2E3192">{esc(a.get("category"))}</span> <small>{when}</small><br><b>{esc(a.get("title"))}</b><br>{line}<p>{esc(a.get("body"))}</p></div><br>'
 
 def event_card(a):
     d = a["_ev"]
-    bits = ([f"🕙 {esc(a['event_time'])}"] if a.get("event_time") else []) + ([f"📍 {esc(a['venue'])}"] if a.get("venue") else [])
+    bits = ([f"Time: {esc(a['event_time'])}"] if a.get("event_time") else []) + ([f"Venue: {esc(a['venue'])}"] if a.get("venue") else [])
     sub = f"<small>{' · '.join(bits)}</small><br>" if bits else ""
     return f'<div class="ev rv"><div class="dt"><b>{d.day}</b><span>{d:%b}</span></div><div><b>{esc(a.get("title"))}</b><br>{sub}<small>{esc(a.get("body"))}</small></div></div>'
 
