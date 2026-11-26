@@ -19,7 +19,7 @@ st.header("Our Levels")
 for i, (col, l) in enumerate(zip(st.columns(3), p["levels"])):
     col.markdown(f'<div class="card top rv" style="--c:{l["colour"]};--d:{i*.1}s"><span class="pill" style="background:{l["colour"]}">{l["name"].upper()}</span><p>{l["tagline"]}</p></div>', unsafe_allow_html=True)
 
-st.header("Our Campus")
+st.header("Our School")
 for col, x in zip(st.columns(3), [x for x in fac if x["category"] == "Campus"][:3]):
     col.image(str(ROOT / x["file"]), caption=x["caption"])
 st.page_link("views/facilities.py", label="View more of our school")
